@@ -1,0 +1,45 @@
+#coding=UTF-8
+'''
+题目：给定一个字符串 s 找到s中最长回文子串 你可以假设s的最大长度为1000
+示例：输入"babad"  输出："bab"  注意 "aba"也是一个有效的答案
+示例： 输入 "cbbd"  输出： "bb"
+算法分析： 回文分析  正 的读  和反向的读  是一致的
+要考虑 几种特殊的情况  如 单个字符串  和  两个相同的字符串的形式
+如 abbc
+'''
+
+class solution:
+	def __init__(self,nums):
+		self.nums = nums
+
+
+	def findpalindrome(self):
+		if len(self.nums)<2:
+			return self.nums
+			#这里需要注意的是单个字符串 也属于 回文子串
+		self.res = ""
+		for i in range(len(self.nums)):
+			# 采用函数的形式  从某个元素开始 向两边拓展 或者从相邻的位置开始拓展
+			self.finder(self.nums,i,i)
+			#从同一个位置 开始向两边 拓展寻找
+			self.finder(self.nums,i,i+1)
+			#从相邻的位置 开始向两边寻找拓展
+		return self.res
+
+
+	def finder(self,nums,left,right):
+		while left >= 0 and right <len(nums) and nums[left]==nums[right]
+			#设置边界条件 左下标大于0 右下标 小于字符串长度 设置初始的
+			#状态设置 从同一个数字 开始向两边 拓展寻找
+			left -= 1
+			right += 1
+		if right-left-1 >len(self.res):
+			self.res = nums[left+1:right]
+			# 不断更新 最长 回文子串
+			# 保留最长子串
+
+
+#测试
+a =  "cbbd"
+mysolution = solution(a)
+print(mysolution.findpalindrome())
