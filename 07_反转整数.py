@@ -31,9 +31,7 @@ class Solution:
         res = ""
         str_int = str(x)
         length = len(str_int)
-        if x == 0:
-            return x
-        elif x >=0:
+        if x >=0:
             for i in range(length - 1, -1, -1):
                 res += str_int[i]
                 # int 强制转换 str类型的 时候 自动转换成int类型的 数值 如 012 自动转换成12
